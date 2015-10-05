@@ -35,7 +35,8 @@ We can find the matching bracket for the first `{` by doing:
 var matchBracket = require('match-bracket');
 
 var code = require('fs').readFileSync('./sample.js');
-matchBracket(code, {line: 1, cursor: 42}, function (result) {
+var bracketPos = {line: 1, cursor: 42};
+matchBracket(code, bracketPos, function (result) {
   console.log(result);
 });
 
@@ -47,8 +48,8 @@ matchBracket(code, {line: 1, cursor: 42}, function (result) {
 
 ### matchBracket(code, bracketPos, callback)
 
-Asynchronously gets the matching bracket of the bracket given by `bracketPos`
-from the `code`. `callback` takes one argument `(result)`.
+Asynchronously gets the position of the matching bracket of the bracket
+given by `bracketPos` from the `code`. `callback` takes one argument `result`.
 
 Both `bracketPos` and `result` are in the format of:
 
@@ -59,8 +60,8 @@ Both `bracketPos` and `result` are in the format of:
 }
 ```
 
-`line` is the line number in which the bracket appears. `cursor` denotes the
-number of character in the line after which the bracket appears.
+`line` is the line number in which the bracket appears. `cursor` denotes order
+in which the bracket appears in the line. Most IDEs display this.
 
 
 ## License
