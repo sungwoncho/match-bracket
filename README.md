@@ -36,20 +36,19 @@ var matchBracket = require('match-bracket');
 
 var code = require('fs').readFileSync('./sample.js');
 var bracketPos = {line: 1, cursor: 42};
-matchBracket(code, bracketPos, function (result) {
-  console.log(result);
-});
 
+var result = matchBracket(code, bracketPos);
+console.log(result);
 // => {line: 11, cursor: 1}
 ```
 
 
 ## API
 
-### matchBracket(code, bracketPos, callback)
+### matchBracket(code, bracketPos)
 
-Asynchronously gets the position of the matching bracket of the bracket
-given by `bracketPos` from the `code`. `callback` takes one argument `result`.
+Returns the position of the matching bracket of the bracket given by
+`bracketPos` from the `code`.
 
 Both `bracketPos` and `result` are in the format of:
 
