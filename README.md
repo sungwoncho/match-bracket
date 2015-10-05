@@ -1,5 +1,7 @@
 # Match-Bracket
 
+[![Build Status](https://travis-ci.org/sungwoncho/match-bracket.svg?branch=master)](https://travis-ci.org/sungwoncho/match-bracket)
+
 Find the matching bracket's position for a bracket in a code.
 
 
