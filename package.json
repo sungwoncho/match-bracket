@@ -4,7 +4,7 @@
   "description": "Find the matching bracket's position for a bracket in a code",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha ./test"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/sungwoncho/bracket-match/issues"
   },
-  "homepage": "https://github.com/sungwoncho/bracket-match#readme"
+  "homepage": "https://github.com/sungwoncho/bracket-match#readme",
+  "devDependencies": {
+    "chai": "^3.3.0",
+    "mocha": "^2.3.3"
+  }
 }
