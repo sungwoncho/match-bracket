@@ -1,5 +1,5 @@
 {
-  "name": "bracket-match",
+  "name": "match-bracket",
   "version": "0.1.0",
   "description": "Find the matching bracket's position for a bracket in a code",
   "main": "index.js",
