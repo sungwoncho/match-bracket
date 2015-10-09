@@ -10,4 +10,12 @@ describe("match-bracket", function(){
     expect(result.line).to.equal(8);
     expect(result.cursor).to.equal(3);
   });
+
+  it("throws an error when unmatched bracket exists", function(){
+    var sample = fs.readFileSync('test/fixture/unmatched_bracket.js', {encoding: 'utf8'});
+
+    expect(function () {
+      matchBracket(sample, {line: 5, cursor: 16});
+    }).to.throw(/(5\, 18)/);
+  });
 });
