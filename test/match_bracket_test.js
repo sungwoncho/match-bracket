@@ -39,4 +39,16 @@ describe("match-bracket", function(){
     expect(result.line).to.equal(null);
     expect(result.cursor).to.equal(null);
   });
+
+  it("matches brackets cloest to each other in an ambiguous match", function(){
+    var sample = '(()';
+
+    var result1 = matchBracket(sample, {line: 1, cursor: 1});
+    expect(result1.line).to.equal(null);
+    expect(result1.cursor).to.equal(null);
+
+    var result2 = matchBracket(sample, {line: 1, cursor: 2});
+    expect(result2.line).to.equal(1);
+    expect(result2.cursor).to.equal(3);
+  });
 });
