@@ -51,4 +51,10 @@ describe("match-bracket", function(){
     expect(result2.line).to.equal(1);
     expect(result2.cursor).to.equal(3);
   });
+
+  it("ignores brackets appearing inside quotation", function(){
+    var result = matchBracket('if (str === ")") {}', {line: 1, cursor: 4});
+    expect(result.line).to.equal(1);
+    expect(result.cursor).to.equal(16);
+  });
 });
