@@ -52,16 +52,22 @@ describe("match-bracket", function(){
     expect(result2.cursor).to.equal(3);
   });
 
-  it("ignores brackets inside comments", function(){
+  it("ignores brackets inside multi line comments", function(){
     var sample = 'while (notFound /* loop until ) char found ) */) {...}';
     var result = matchBracket(sample, {line: 1, cursor: 7}, 'js');
     expect(result.line).to.equal(1);
-    expect(result.cursor).to.equal(31);    
+    expect(result.cursor).to.equal(31);
   });
 
-  // it("ignores brackets appearing inside \"\"", function(){
-  //   var result = matchBracket('if (str === ")") {}', {line: 1, cursor: 4}, 'js');
-  //   expect(result.line).to.equal(1);
-  //   expect(result.cursor).to.equal(16);
-  // });
+  it("ignores brackets appearing inside \"\"", function(){
+    var result = matchBracket('if (str === ")") {}', {line: 1, cursor: 4}, 'js');
+    expect(result.line).to.equal(1);
+    expect(result.cursor).to.equal(16);
+  });
+
+  it("ignores brackets appearing inside quotations inside comments", function(){
+    var result = matchBracket('(/* "("*/)', {line: 1, cursor: 1}, 'js');
+    expect(result.line).to.equal(1);
+    expect(result.cursor).to.equal(10);
+  });
 });
