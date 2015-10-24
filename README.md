@@ -45,10 +45,13 @@ console.log(result);
 
 ## API
 
-### matchBracket(code, bracketPos)
+### matchBracket(code, bracketPos, extension)
 
 Returns the position of the matching bracket of the bracket given by
 `bracketPos` from the `code`.
+
+`extension` is an optional argument. It allows match-bracket to recognize
+comments in the code and get more accurate results.
 
 Both `bracketPos` and `result` are in the format of:
 
@@ -61,6 +64,26 @@ Both `bracketPos` and `result` are in the format of:
 
 `line` is the line number in which the bracket appears. `cursor` denotes order
 in which the bracket appears in the line. Most IDEs display this.
+
+
+## Rules
+
+* Unmatched bracket returns results with null as properties.
+
+```javascript
+matchBracket('({)', {line: 1, cursor: 2});
+// => {line: null, cursor: null}
+```
+
+* In ambiguous matches, brackets closest to each other are matched.
+
+```javascript
+matchBracket('(()', {line: 1, cursor: 1});
+// => {line: null, cursor: null}
+
+matchBracket('(()', {line: 1, cursor: 2});
+// => {line: 1, cursor: 3}
+```
 
 
 ## License
