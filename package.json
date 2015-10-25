@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sungwoncho/bracket-match.git"
+    "url": "git+https://github.com/sungwoncho/match-bracket.git"
   },
   "keywords": [
     "brace",
@@ -18,9 +18,9 @@
   "author": "Sung Won Cho <mikeswcho@gmail.com> (https://sungwoncho.io)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sungwoncho/bracket-match/issues"
+    "url": "https://github.com/sungwoncho/match-bracket/issues"
   },
-  "homepage": "https://github.com/sungwoncho/bracket-match#readme",
+  "homepage": "https://github.com/sungwoncho/match-bracket#readme",
   "devDependencies": {
     "chai": "^3.3.0",
     "mocha": "^2.3.3"
